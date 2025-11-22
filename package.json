@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-markdown-code-block-parser",
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"description": "n8n node to parse all code blocks from Markdown text",
 	"keywords": [
 		"n8n-community-node-package",

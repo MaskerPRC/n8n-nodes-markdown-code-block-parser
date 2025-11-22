@@ -45,8 +45,8 @@ export class MarkdownCodeBlockParser implements INodeType {
 				displayName: 'Output Field Name',
 				name: 'outputFieldName',
 				type: 'string',
-				default: 'codeBlocks',
-				description: 'The name of the output field containing the array of code blocks',
+				default: '',
+				description: 'The name of the output field containing the array of code blocks. Leave empty to output each code block as a separate item.',
 			},
 			{
 				displayName: 'Include Empty Blocks',
@@ -157,7 +157,7 @@ export class MarkdownCodeBlockParser implements INodeType {
 
 		// Get parameters
 		const markdownText = this.getNodeParameter('markdownText', 0, '') as string;
-		const outputFieldName = this.getNodeParameter('outputFieldName', 0, 'codeBlocks') as string;
+		const outputFieldName = this.getNodeParameter('outputFieldName', 0, '') as string;
 		const includeEmpty = this.getNodeParameter('includeEmpty', 0, false) as boolean;
 		const includeNoLanguage = this.getNodeParameter('includeNoLanguage', 0, true) as boolean;
 
@@ -172,15 +172,36 @@ export class MarkdownCodeBlockParser implements INodeType {
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			try {
 				const item = items[itemIndex];
-				const newItem: INodeExecutionData = {
-					json: {
-						...item.json,
-						[outputFieldName]: codeBlocks,
-					},
-					pairedItem: item.pairedItem,
-				};
 
-				returnData.push(newItem);
+				if (!outputFieldName || outputFieldName.trim() === '') {
+					// Output each code block as a separate item
+					if (codeBlocks.length === 0) {
+						// If no code blocks, output the original item
+						returnData.push(item);
+					} else {
+						// Create one output item for each code block
+						for (const codeBlock of codeBlocks) {
+							const newItem: INodeExecutionData = {
+								json: {
+									...item.json,
+									...codeBlock,
+								},
+								pairedItem: item.pairedItem,
+							};
+							returnData.push(newItem);
+						}
+					}
+				} else {
+					// Output all code blocks as an array in the specified field
+					const newItem: INodeExecutionData = {
+						json: {
+							...item.json,
+							[outputFieldName]: codeBlocks,
+						},
+						pairedItem: item.pairedItem,
+					};
+					returnData.push(newItem);
+				}
 			} catch (error) {
 				if (this.continueOnFail()) {
 					const errorItem: INodeExecutionData = {
