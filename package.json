@@ -1,0 +1,50 @@
+{
+	"name": "n8n-nodes-markdown-code-block-parser",
+	"version": "1.0.0",
+	"description": "n8n node to parse all code blocks from Markdown text",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"markdown",
+		"code-block",
+		"parser"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/org/repo#readme",
+	"author": {
+		"name": "Your Name",
+		"email": "your.email@example.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/org/repo.git"
+	},
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "tsc",
+		"lint": "eslint nodes credentials --ext .ts",
+		"lint:fix": "eslint nodes credentials --ext .ts --fix",
+		"prepublishOnly": "npm run build"
+	},
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"nodes": [
+			"dist/nodes/MarkdownCodeBlockParser/MarkdownCodeBlockParser.node.js"
+		],
+		"credentials": []
+	},
+	"files": [
+		"dist"
+	],
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"eslint": "^8.0.0",
+		"n8n-workflow": "*",
+		"typescript": "^5.0.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
