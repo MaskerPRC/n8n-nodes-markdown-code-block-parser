@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-markdown-code-block-parser",
-	"version": "1.0.1",
+	"version": "1.0.4",
 	"description": "n8n node to parse all code blocks from Markdown text",
 	"keywords": [
 		"n8n-community-node-package",
@@ -21,7 +21,8 @@
 	},
 	"main": "dist/index.js",
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc && npm run copy:icons",
+		"copy:icons": "copyfiles -u 2 \"nodes/MarkdownCodeBlockParser/*.svg\" dist/icons",
 		"lint": "eslint nodes credentials --ext .ts",
 		"lint:fix": "eslint nodes credentials --ext .ts --fix",
 		"prepublishOnly": "npm run build"
@@ -34,12 +35,14 @@
 		"credentials": []
 	},
 	"files": [
-		"dist"
+		"dist",
+		"nodes/MarkdownCodeBlockParser/*.svg"
 	],
 	"devDependencies": {
 		"@types/node": "^20.0.0",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
+		"copyfiles": "^2.4.1",
 		"eslint": "^8.0.0",
 		"n8n-workflow": "*",
 		"typescript": "^5.0.0"

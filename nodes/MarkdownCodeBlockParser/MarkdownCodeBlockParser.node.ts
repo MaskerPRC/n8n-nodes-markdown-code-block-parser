@@ -19,10 +19,7 @@ export class MarkdownCodeBlockParser implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Markdown Code Block Parser',
 		name: 'markdownCodeBlockParser',
-		icon: {
-			light: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHJ4PSIyIiByeT0iMiI+PC9yZWN0PjxsaW5lIHgxPSI3IiB5MT0iOCIgeDI9IjE3IiB5Mj0iOCI+PC9saW5lPjxsaW5lIHgxPSI3IiB5MT0iMTIiIHgyPSIxNyIgeTI9IjEyIj48L2xpbmU+PGxpbmUgeDE9IjciIHkxPSIxNiIgeDI9IjEzIiB5Mj0iMTYiPjwvbGluZT48cG9seWxpbmUgcG9pbnRzPSIxNyAxMCAxOSA4IDE3IDYiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTcgMTQgMTkgMTYgMTcgMTgiPjwvcG9seWxpbmU+PC9zdmc+',
-			dark: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHJ4PSIyIiByeT0iMiI+PC9yZWN0PjxsaW5lIHgxPSI3IiB5MT0iOCIgeDI9IjE3IiB5Mj0iOCI+PC9saW5lPjxsaW5lIHgxPSI3IiB5MT0iMTIiIHgyPSIxNyIgeTI9IjEyIj48L2xpbmU+PGxpbmUgeDE9IjciIHkxPSIxNiIgeDI9IjEzIiB5Mj0iMTYiPjwvbGluZT48cG9seWxpbmUgcG9pbnRzPSIxNyAxMCAxOSA4IDE3IDYiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTcgMTQgMTkgMTYgMTcgMTgiPjwvcG9seWxpbmU+PC9zdmc+',
-		} as any,
+		icon: { light: 'file:../../icons/markdown.svg', dark: 'file:../../icons/markdown.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		description: 'Parse all code blocks from Markdown text',
